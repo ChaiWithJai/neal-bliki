@@ -1,38 +1,91 @@
 {
   "bliki_metadata": {
-    "title": "Neal Frazier Tech Bliki",
-    "description": "The digital brain of Neal Frazier: Creative Technologist, Security Analyst, and future Certified Netlify Partner.",
+    "title": "Neal Frazier",
+    "description": "I build lightning-fast websites that help Virginia Beach specialty businesses get found on Google and get booked by customers.",
     "author": "Neal Frazier",
     "location": "Virginia Beach, VA",
     "base_url": "https://www.nealfrazier.tech",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
-  
+
+  "homepage": {
+    "tech_marquee": ["React", "Netlify", "Vite", "Tailwind CSS", "TypeScript", "Node.js", "Local SEO", "Jamstack"],
+    "proof_banner": {
+      "headline": "100 websites. 30 days. All on Netlify.",
+      "description": "I built 100 production websites in 30 days to master my craft and build a reusable component library. That library now powers every site I deliver to clients.",
+      "link": "https://100websitesin30days.netlify.app/",
+      "stats": [
+        { "value": "100", "label": "Websites Built" },
+        { "value": "30", "label": "Days" },
+        { "value": "$499", "label": "Starting Price" }
+      ]
+    },
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "We Talk",
+        "description": "I learn what makes your business special and what your customers need."
+      },
+      {
+        "number": "02",
+        "title": "I Build",
+        "description": "Fast, SEO-optimized website with booking built in. Ready in days, not months."
+      },
+      {
+        "number": "03",
+        "title": "You Grow",
+        "description": "Customers find you on Google, book instantly, and keep coming back."
+      }
+    ],
+    "faq": [
+      {
+        "question": "How long does it take to build my website?",
+        "answer": "Most VB Specialty Launchpad sites are live within 1-2 weeks. Because I've built 100+ sites, I have a proven component library that accelerates delivery without sacrificing quality."
+      },
+      {
+        "question": "Do I need to provide content and images?",
+        "answer": "I'll guide you through exactly what's needed. Most clients provide their business info and photos, and I handle the rest — copywriting, layout, and optimization."
+      },
+      {
+        "question": "Will my site actually rank on Google?",
+        "answer": "Every site includes local SEO setup: Google Business Profile optimization, schema markup, and fast Netlify edge-delivery. These are the fundamentals that move the needle for local search."
+      },
+      {
+        "question": "What about booking and scheduling?",
+        "answer": "Integrated booking is a core feature. I use serverless functions to connect your site with scheduling tools, so customers can book directly — no friction, no phone tag."
+      },
+      {
+        "question": "What if I need changes after launch?",
+        "answer": "Your site is built on modern, maintainable technology. I offer ongoing support and can make updates quickly. You're not locked into a rigid template."
+      }
+    ]
+  },
+
   "taxonomy": {
-    "topics":[
+    "topics": [
       { "id": "t_frontend", "name": "Frontend & Creative Tech", "description": "React 19, Vite, MUI, Three.js, Framer Motion." },
       { "id": "t_security", "name": "Cybersecurity & Systems", "description": "Linux, SOX Controls, Ethical Hacking, PowerShell." },
       { "id": "t_ai_automation", "name": "AI Tooling & Automation", "description": "AI-driven developer workflows, Python, Edge Compute." },
       { "id": "t_business", "name": "Business & SEO", "description": "Freelance web development, SEO, and client acquisition." },
       { "id": "t_local_growth", "name": "Local Business Growth", "description": "Virginia Beach local SEO, Netlify Jamstack solutions, booking integrations." }
     ],
-    "tags":[
-      "react", "linux", "seo", "automation", "supabase", "portfolio", 
+    "tags": [
+      "react", "linux", "seo", "automation", "supabase", "portfolio",
       "netlify", "local-business", "booking-systems", "jamstack"
     ]
   },
 
   "wiki_nodes": {
-    "description": "Evergreen, interconnected pages detailing concepts, tools, and long-term projects.",
-    "entities":[
+    "description": "Evergreen knowledge — concepts, tools, and long-term projects I'm building on.",
+    "entities": [
       {
         "id": "wiki_netlify_partner",
         "title": "Netlify Partner Program Journey",
         "type": "KnowledgeBase",
         "topic_id": "t_local_growth",
-        "tags":["netlify", "jamstack", "business"],
+        "tags": ["netlify", "jamstack", "business"],
         "content": "Evergreen documentation on the requirements, benefits, and architectural standards for becoming a Certified Netlify Partner. Tracks agency tier progress.",
-        "linked_nodes":["wiki_100_websites", "wiki_react"],
+        "linked_nodes": ["wiki_100_websites", "wiki_react"],
         "last_updated": "2026-04-10"
       },
       {
@@ -40,9 +93,9 @@
         "title": "100 Websites in 30 Days",
         "type": "Project",
         "topic_id": "t_frontend",
-        "tags":["portfolio", "netlify", "react"],
+        "tags": ["portfolio", "netlify", "react"],
         "content": "A high-velocity frontend development challenge hosted at https://100websitesin30days.netlify.app/. Serves as the ultimate proof-of-work for prospective clients.",
-        "linked_nodes":["wiki_netlify_partner", "wiki_frontend"],
+        "linked_nodes": ["wiki_netlify_partner", "wiki_frontend"],
         "last_updated": "2026-04-01"
       },
       {
@@ -52,15 +105,15 @@
         "topic_id": "t_local_growth",
         "tags": ["seo", "local-business"],
         "content": "A living document of ranking factors for Hampton Roads/VB. Focuses on Google Business Profile optimization, Schema markup, and fast Netlify edge-delivery.",
-        "linked_nodes":["wiki_netlify_partner"],
+        "linked_nodes": ["wiki_netlify_partner"],
         "last_updated": "2026-04-05"
       }
     ]
   },
 
   "blog_stories": {
-    "description": "Chronological stories, event-driven posts, updates, and personal developer narratives.",
-    "posts":[
+    "description": "Stories from the journey — building, learning, and solving real problems for real businesses.",
+    "posts": [
       {
         "id": "post_004",
         "title": "Why I Built 100 Websites in 30 Days (And Hosted Them on Netlify)",
@@ -68,16 +121,16 @@
         "topic_id": "t_frontend",
         "tags": ["portfolio", "netlify"],
         "content_summary": "A deep dive into the 100 Websites project. Discussing the CI/CD pipeline, overcoming builder fatigue, and why Netlify is my go-to for Jamstack.",
-        "related_wiki_nodes":["wiki_100_websites", "wiki_netlify_partner"]
+        "related_wiki_nodes": ["wiki_100_websites", "wiki_netlify_partner"]
       },
       {
         "id": "post_005",
         "title": "Solving the 'Get Booked' Problem for VB Specialty Shops",
         "date": "2026-04-18",
         "topic_id": "t_local_growth",
-        "tags":["local-business", "booking-systems", "seo"],
+        "tags": ["local-business", "booking-systems", "seo"],
         "content_summary": "Many specialty businesses in Virginia Beach have great services but terrible booking flows. Here is how I use Netlify Serverless Functions to integrate seamless scheduling.",
-        "related_wiki_nodes":["wiki_vb_local_seo"]
+        "related_wiki_nodes": ["wiki_vb_local_seo"]
       },
       {
         "id": "post_006",
@@ -92,32 +145,33 @@
   },
 
   "business_context": {
-    "description": "Commercial offerings connected to both wiki capabilities and blog case studies.",
+    "description": "Fast, beautiful websites for Virginia Beach specialty businesses — with local SEO and booking built in.",
     "target_market": {
       "region": "Virginia Beach, VA",
       "primary_persona": "Specialty New Businesses (e.g., Boutiques, Niche Services, Artisans)",
       "acquisition_channel": "SOC LIST VB",
       "core_pain_points": ["Local Ranking (SEO)", "Get Booked (Frictionless Scheduling)"]
     },
-    "offerings":[
+    "offerings": [
       {
         "id": "svc_netlify_starter",
         "name": "VB Specialty Launchpad",
         "price_usd": "Starting at $499",
-        "features":[
-          "Lightning Fast Netlify Hosting", 
-          "Local SEO Setup (Rank in VB)", 
+        "description": "Everything a Virginia Beach specialty business needs to get online, get found, and get booked.",
+        "features": [
+          "Lightning Fast Netlify Hosting",
+          "Local SEO Setup (Rank in VB)",
           "Integrated Booking System (Get Booked)",
           "Leverages '100 Websites' Component Library"
         ],
-        "related_wiki_nodes":["wiki_netlify_partner", "wiki_vb_local_seo", "wiki_100_websites"]
+        "related_wiki_nodes": ["wiki_netlify_partner", "wiki_vb_local_seo", "wiki_100_websites"]
       }
     ],
-    "case_studies":[
+    "case_studies": [
       {
         "client": "Local VB Client (TBD from SOC LIST VB)",
         "related_post_id": "post_005",
-        "technologies_used":["wiki_netlify_partner", "wiki_vb_local_seo"]
+        "technologies_used": ["wiki_netlify_partner", "wiki_vb_local_seo"]
       }
     ]
   }
