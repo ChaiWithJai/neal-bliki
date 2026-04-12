@@ -1,59 +1,73 @@
 import data from "@/data.json";
-import { FileText, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 export default function BlogList() {
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
-      <header className="border-b border-[#262626] pb-6">
-        <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-          <FileText className="w-8 h-8 text-[#00ffcc]" />
-          Blog Stories
-        </h1>
-        <p className="text-[#a3a3a3] mt-2 max-w-2xl">
-          {data.blog_stories.description}
-        </p>
-      </header>
+    <div className="pt-28 pb-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <header className="mb-12">
+          <p className="text-sm uppercase tracking-widest text-[#8B8B85] mb-3 font-medium">
+            The Journey
+          </p>
+          <h1 className="text-4xl font-bold tracking-tight mb-3">Stories</h1>
+          <p className="text-[#52524E] text-lg max-w-2xl">
+            {data.blog_stories.description}
+          </p>
+        </header>
 
-      <div className="space-y-6">
-        {data.blog_stories.posts.map(post => {
-          const topic = data.taxonomy.topics.find(t => t.id === post.topic_id);
-          return (
-            <article key={post.id} className="group relative pl-8 border-l border-[#262626] hover:border-[#00ffcc] transition-colors pb-8 last:pb-0">
-              <div className="absolute w-3 h-3 bg-[#0a0a0a] border-2 border-[#262626] group-hover:border-[#00ffcc] rounded-full -left-[6.5px] top-1.5 transition-colors"></div>
-              
-              <div className="space-y-3">
-                <div className="flex items-center gap-4">
-                  <time className="text-sm font-mono text-[#00ffcc]">{post.date}</time>
-                  {topic && (
-                    <span className="text-xs text-[#525252] flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#525252]"></span>
-                      {topic.name}
-                    </span>
-                  )}
-                </div>
-                
-                <h2 className="text-2xl font-bold text-white group-hover:text-[#00ffcc] transition-colors">
-                  <Link to={`/blog/${post.id}`} className="before:absolute before:inset-0">
+        <div className="space-y-6">
+          {data.blog_stories.posts.map((post, i) => {
+            const topic = data.taxonomy.topics.find(
+              (t) => t.id === post.topic_id
+            );
+            return (
+              <motion.article
+                key={post.id}
+                className="group relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="block bg-white border border-black/5 rounded-2xl p-6 md:p-8 hover:shadow-lg hover:shadow-black/[0.04] transition-all"
+                >
+                  <div className="flex items-center gap-4 mb-3">
+                    <time className="text-sm font-medium text-[#1D4ED8]">
+                      {post.date}
+                    </time>
+                    {topic && (
+                      <span className="text-xs text-[#8B8B85] flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#8B8B85]" />
+                        {topic.name}
+                      </span>
+                    )}
+                  </div>
+
+                  <h2 className="text-2xl font-bold group-hover:text-[#1D4ED8] transition-colors mb-3 tracking-tight">
                     {post.title}
-                  </Link>
-                </h2>
-                
-                <p className="text-[#a3a3a3] leading-relaxed max-w-3xl">
-                  {post.content_summary}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {post.tags.map(tag => (
-                    <span key={tag} className="text-xs font-mono px-2 py-1 rounded bg-[#141414] border border-[#262626] text-[#525252] relative z-10">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          );
-        })}
+                  </h2>
+
+                  <p className="text-[#52524E] leading-relaxed max-w-3xl mb-4">
+                    {post.content_summary}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium px-3 py-1 rounded-full bg-[#F0EDE8] text-[#8B8B85]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
