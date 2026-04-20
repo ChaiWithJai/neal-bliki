@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
-import {defineConfig, loadEnv} from 'vite';
+import {defineConfig} from 'vite';
 
 type RouteMeta = {
   route: string;
@@ -123,8 +123,7 @@ function prerenderPerRoutePlugin() {
   };
 }
 
-export default defineConfig(({mode}) => {
-  const env = loadEnv(mode, '.', '');
+export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss(), prerenderPerRoutePlugin()],
     build: {
@@ -140,17 +139,13 @@ export default defineConfig(({mode}) => {
         },
       },
     },
-    define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
       },
     },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      // Optional toggle to disable HMR in specific local workflows.
       hmr: process.env.DISABLE_HMR !== 'true',
     },
   };

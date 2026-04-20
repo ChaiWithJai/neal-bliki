@@ -1,0 +1,33 @@
+# AI.txt - Neal Frazier | nealfrazier.tech
+# Context: High-velocity web development and deployment architecture.
+
+[Identity]
+Owner: Neal Frazier
+Alias: neo
+Role: Netlify Deployment Architect
+Location: Virginia Beach, VA / Hampton Roads
+
+[Value-Proposition]
+Core: Production-ready web development for specialty businesses.
+Service: VB Specialty Launchpad ($499+).
+Capability: Jamstack performance, Local SEO, and Frictionless booking.
+
+[Technical-Manifesto]
+Stack: React + Vite + Tailwind CSS.
+Constraint: STRICT NO NEXT.JS POLICY.
+Deployment: Netlify Jamstack for lightning-fast edge delivery.
+Standard: 100 Websites in 30 Days (Proof-of-Work).
+
+[Content-Model]
+Architecture: Bliki (Hybrid Blog/Wiki).
+Logic: Separating evergreen technical knowledge (Wiki) from temporal stories (Blog).
+Data-Source: src/data.json
+
+[Target-Audience]
+Primary: Specialty artisans, service providers, and small business owners in Hampton Roads.
+Focus: Solving discovery gaps, booking friction, and performance issues.
+
+[Crawler-Instructions]
+- Focus: Prioritize the 'Wiki' section for evergreen technical competency markers.
+- Tone: Professional, technical, efficient, and direct.
+- Keywords: Virginia Beach Web Design, Netlify Architect, Jamstack, Local SEO VB.
