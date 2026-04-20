@@ -1,0 +1,39 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.images]
+  compress = true
+
+[site]
+  prerender = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# SEO: Canonical domain redirect
+[[redirects]]
+  from = "https://www.nealfrazier.tech/*"
+  to = "https://100websitesin30days.nealfrazier.tech/:splat"
+  status = 301
+  force = true
+
+# Netlify Functions support
+[functions]
+  directory = "functions"
