@@ -20,6 +20,21 @@ export default function BlogPost() {
     "content_full" in post && Array.isArray(post.content_full)
       ? post.content_full
       : [post.content_summary];
+  const painPointLine = contentBlocks.find((line) => /^Pain point:/i.test(line.trim()));
+  const useCaseLine = contentBlocks.find((line) => /^Use case:/i.test(line.trim()));
+  const solutionLine = contentBlocks.find((line) => /^Solution:/i.test(line.trim()));
+
+  const painPointRecap = painPointLine
+    ? painPointLine.replace(/^Pain point:\s*/i, "").trim()
+    : "Business owners often publish content without connecting it to a clear conversion path, so traffic does not turn into inquiries.";
+
+  const useCaseRecap = useCaseLine
+    ? useCaseLine.replace(/^Use case:\s*/i, "").trim()
+    : "A practical implementation opportunity exists, but the current page flow does not clearly guide visitors toward action.";
+
+  const solutionRecap = solutionLine
+    ? solutionLine.replace(/^Solution:\s*/i, "").trim()
+    : "Pair story-driven content with direct offer framing, internal links to service pages, and a consistent contact CTA near the decision moment.";
 
   return (
     <div className="px-6 pb-20 pt-28">
@@ -139,15 +154,11 @@ export default function BlogPost() {
             </div>
             <h2 className="text-uplift mb-3 text-2xl font-bold text-[#111111]">Pain Point → Solution Recap</h2>
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#EA4335]">Pain Point</p>
-            <p className="mb-4 text-[#4b5563]">
-              Business owners often publish content without connecting it to a clear conversion path, so traffic does
-              not turn into inquiries.
-            </p>
+            <p className="mb-4 text-[#4b5563]">{painPointRecap}</p>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#4285F4]">Use Case</p>
+            <p className="mb-4 text-[#4b5563]">{useCaseRecap}</p>
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#34A853]">Solution</p>
-            <p className="mb-5 text-[#4b5563]">
-              Pair story-driven content with direct offer framing, internal links to service pages, and a consistent
-              contact CTA near the decision moment.
-            </p>
+            <p className="mb-5 text-[#4b5563]">{solutionRecap}</p>
             <Link
               to={`/contact?context=${encodeURIComponent(`Help me apply the approach from ${post.title}`)}`}
               className="inline-flex items-center rounded-full border border-[#4285F4]/30 bg-[#4285F4]/8 px-4 py-2 text-sm font-medium text-[#111111] hover:bg-[#4285F4]/14"
