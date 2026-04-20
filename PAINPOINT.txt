@@ -1,0 +1,21 @@
+CORE PAINPOINTS: VB Specialty Businesses
+------------------------------------------
+1. "The Invisible Business" (Discovery Gap)
+   - Pain: Great services, but no one finds them on Google.
+   - Symptom: Low organic traffic, lack of local search visibility.
+   - Solution: Local SEO Matrix, Google Business Profile optimization, and Schema markup.
+
+2. "The Booking Friction" (Conversion Gap)
+   - Pain: Customers find the site, but booking a service is a chore (phone tag, email back-and-forth).
+   - Symptom: High drop-off rate at the point of intent.
+   - Solution: Integrated frictionless scheduling via serverless functions.
+
+3. "The Slow-Site Bounce" (Performance Gap)
+   - Pain: Outdated sites that load slowly on mobile, causing users to leave.
+   - Symptom: High bounce rates, poor Core Web Vitals.
+   - Solution: Netlify Jamstack architecture for lightning-fast edge delivery.
+
+4. "The Development Dread" (Time/Cost Gap)
+   - Pain: Fear that a new website will take months of their time and thousands of dollars.
+   - Symptom: Procrastination on upgrading digital presence.
+   - Solution: "VB Specialty Launchpad" - ready in days, not months, starting at $499.

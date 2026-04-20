@@ -19,13 +19,13 @@
       "Jamstack"
     ],
     "proof_banner": {
-      "headline": "100 websites shipped. 30-day sprint complete.",
-      "description": "I completed the 100 Websites in 30 Days challenge, publicly shipping 100 production-ready websites. All projects are live and hosted on Netlify.",
-      "link": "https://100websitesin30days.nealfrazier.tech/",
+      "headline": "77 websites shipped so far. 30-day sprint in progress.",
+      "description": "I am publicly shipping 100 websites in 30 days and documenting every launch. 77 projects are live now, and the tracker updates as new builds go out.",
+      "link": "https://100websitesin30days.netlify.app/",
       "stats": [
         {
-          "value": "100",
-          "label": "Websites Shipped (Final Count)"
+          "value": "77",
+          "label": "Websites Shipped"
         },
         {
           "value": "30",
@@ -57,7 +57,7 @@
     "faq": [
       {
         "question": "How long does it take to build my website?",
-        "answer": "Most VB Specialty Launchpad sites are live within 1-2 weeks. Because I've built 100+ sites (including the 100 Websites in 30 Days challenge), I have a proven component library that accelerates delivery without sacrificing quality."
+        "answer": "Most VB Specialty Launchpad sites are live within 1-2 weeks. Because I've built 100+ sites, I have a proven component library that accelerates delivery without sacrificing quality."
       },
       {
         "question": "Do I need to provide content and images?",
