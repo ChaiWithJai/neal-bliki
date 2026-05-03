@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, ExternalLink, MapPin } from "lucide-react";
+import { ArrowRight, Check, ExternalLink, MapPin, Zap, Calendar } from "lucide-react";
 
 import data from "@/data.json";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
@@ -158,6 +158,104 @@ export default function Dashboard() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-4xl">
+          <BlurFade inView>
+            <div className="mb-12 text-center">
+              <div className="editorial-kicker mb-4 inline-flex items-center gap-2 rounded-full border border-[#ea4335]/25 bg-[#ea4335]/8 px-4 py-1.5 font-medium text-[#c5221f]">
+                <Calendar className="h-3.5 w-3.5" />
+                Limited Time — Available Until September
+              </div>
+              <h2 className="text-uplift mb-4 text-3xl font-bold tracking-tight text-[#111111] md:text-4xl">
+                I build fast, intelligent websites that actually work—powered by AI and built to convert.
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-[#4b5563]">
+                Choose the tier that matches where you are. Every option ships fast and sells results, not just features.
+              </p>
+            </div>
+          </BlurFade>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                tier: "Starter",
+                price: "$20",
+                hook: "Get online TODAY",
+                deliverable: "1-page site, deployed",
+                color: "#4285f4",
+              },
+              {
+                tier: "Launch",
+                price: "$50",
+                hook: "Look legit instantly",
+                deliverable: "Multi-section landing page + branding",
+                color: "#34a853",
+              },
+              {
+                tier: "Growth",
+                price: "$100",
+                hook: "Start getting found",
+                deliverable: "SEO setup + analytics + optimization",
+                color: "#fbbc05",
+              },
+              {
+                tier: "Authority",
+                price: "$250",
+                hook: "Automate & scale",
+                deliverable: "AI integrations + advanced UX + automation",
+                color: "#ea4335",
+              },
+            ].map((item, i) => (
+              <div key={item.tier}>
+                <BlurFade inView delay={i * 0.06}>
+                  <MagicCard className="h-full p-6">
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="h-2 w-2 rounded-full"
+                          style={{ backgroundColor: item.color }}
+                        />
+                        <span className="text-sm font-semibold tracking-wide text-[#6b7280] uppercase">
+                          {item.tier}
+                        </span>
+                      </div>
+                      <span className="text-2xl font-bold text-[#111111]">{item.price}</span>
+                    </div>
+                    <h3 className="mb-2 text-xl font-bold text-[#111111]">{item.hook}</h3>
+                    <p className="mb-4 text-[#4b5563]">{item.deliverable}</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-sm text-[#374151]">
+                        <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                        <span>Fast turnaround</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-[#374151]">
+                        <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                        <span>Netlify-native deploy</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-[#374151]">
+                        <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                        <span>Real working product, not a mockup</span>
+                      </li>
+                    </ul>
+                  </MagicCard>
+                </BlurFade>
+              </div>
+            ))}
+          </div>
+
+          <BlurFade inView delay={0.1}>
+            <div className="mt-12 text-center">
+              <Link to="/contact?context=Interested%20in%20limited%20time%20offer">
+                <ShimmerButton className="font-medium" shimmerColor="#ea4335">
+                  Claim Your Spot
+                  <ArrowRight className="h-4 w-4" />
+                </ShimmerButton>
+              </Link>
+            </div>
+          </BlurFade>
         </div>
       </section>
 

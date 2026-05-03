@@ -30,10 +30,6 @@
         {
           "value": "30",
           "label": "Challenge Days"
-        },
-        {
-          "value": "$499",
-          "label": "Starting Price"
         }
       ]
     },
@@ -61,7 +57,7 @@
       },
       {
         "question": "Do I need to provide content and images?",
-        "answer": "I'll guide you through exactly what's needed. Most clients provide their business info and photos, and I handle the rest — copywriting, layout, and optimization."
+        "answer": "I'll guide you through exactly what's needed. Most clients provide their business info and photos, and I handle the rest \u2014 copywriting, layout, and optimization."
       },
       {
         "question": "Will my site actually rank on Google?",
@@ -69,7 +65,7 @@
       },
       {
         "question": "What about booking and scheduling?",
-        "answer": "Integrated booking is a core feature. I use serverless functions to connect your site with scheduling tools, so customers can book directly — no friction, no phone tag."
+        "answer": "Integrated booking is a core feature. I use serverless functions to connect your site with scheduling tools, so customers can book directly \u2014 no friction, no phone tag."
       },
       {
         "question": "What if I need changes after launch?",
@@ -122,7 +118,7 @@
     ]
   },
   "wiki_nodes": {
-    "description": "Evergreen knowledge — concepts, tools, and long-term projects I'm building on.",
+    "description": "Evergreen knowledge \u2014 concepts, tools, and long-term projects I'm building on.",
     "entities": [
       {
         "id": "wiki_netlify_partner",
@@ -322,7 +318,7 @@
     ]
   },
   "blog_stories": {
-    "description": "Stories from the journey — building, learning, and solving real problems for real businesses.",
+    "description": "Stories from the journey \u2014 building, learning, and solving real problems for real businesses.",
     "posts": [
       {
         "id": "post_004",
@@ -540,7 +536,7 @@
     ]
   },
   "business_context": {
-    "description": "From AI Shippers prototypes to enterprise production systems on Netlify — plus fast, high-performance launches for small businesses.",
+    "description": "From AI Shippers prototypes to enterprise production systems on Netlify \u2014 plus fast, high-performance launches for small businesses.",
     "target_market": {
       "region": "Virginia Beach, VA",
       "primary_persona": "Specialty New Businesses (e.g., Boutiques, Niche Services, Artisans)",
@@ -564,7 +560,6 @@
         ],
         "related_wiki_nodes": [
           "wiki_netlify_partner",
-          "wiki_100_websites",
           "wiki_ai_powerhouse_setup"
         ]
       },
@@ -615,8 +610,7 @@
         ],
         "related_wiki_nodes": [
           "wiki_netlify_partner",
-          "wiki_ai_powerhouse_setup",
-          "wiki_100_websites"
+          "wiki_ai_powerhouse_setup"
         ]
       }
     ],
