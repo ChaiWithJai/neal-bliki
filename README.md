@@ -1,66 +1,158 @@
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                        NEAL BLIKI                             -->
+<!--              Web Systems · Local SEO · AI Automation           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <br>
+  <img src="public/logo-neal-avatar-transparent-bg.webp" width="96" height="96" alt="Neal Frazier" style="border-radius: 50%;">
+  <br><br>
+  
+  <sup>
+    <span style="color: #4285F4">●</span> Web Systems
+    <span style="color: #9ca3af">·</span>
+    <span style="color: #34A853">●</span> Local SEO
+    <span style="color: #9ca3af">·</span>
+    <span style="color: #EA4335">●</span> AI Automation
+  </sup>
+  
+  <h1>NEAL BLIKI</h1>
+  
+  <p>
+    A living portfolio, knowledge wiki, and service storefront — <br>
+    prerendered to static HTML with surgical SEO precision.
+  </p>
+  
+  <br>
 </div>
 
-# Neal Bliki: 100 Websites in 30 Days
+---
 
-React + Vite site for Neal Frazier's public build log, knowledge wiki, offers, and contact pages.
+## What This Is
 
-## Stack
+This is not a template. It is a production-ready **bliki** — a hybrid of blog and wiki — built to demonstrate what happens when graphic design discipline meets web systems architecture.
 
-- React 19
-- Vite 6
-- TypeScript
-- React Router
-- Tailwind CSS 4
-- Netlify deploy target
+Every route gets its own prerendered HTML file with unique metadata, heading hierarchies, and social previews. No placeholder copy. No generic SaaS chrome. Just clean composition, real content, and pages that index.
 
-## Routes
+---
 
-- `/` Dashboard
-- `/wiki` Wiki index
-- `/wiki/:id` Wiki node
-- `/blog` Blog index
-- `/blog/:id` Blog post
-- `/offerings` Services/offers
-- `/contact` Contact page
+## Architecture
+
+```
+┌─────────────────────────────────────────┐
+│  React 19        +  Vite 6              │
+│  TypeScript      +  Tailwind CSS 4      │
+│  React Router    +  Framer Motion       │
+│  Custom Vite Plugin  →  22 Static HTML  │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+            ┌───────────────┐
+            │    Netlify    │
+            │  Edge Delivery │
+            └───────────────┘
+```
+
+| Concern | Implementation |
+|---------|---------------|
+| Framework | React 19 + Vite 6 |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS 4 with custom design tokens |
+| Routing | React Router (SPA with prerender) |
+| Animation | Framer Motion + custom shader effects |
+| Prerender | Custom Vite plugin — 22 routes to static HTML |
+| Hosting | Netlify with pretty URLs + SPA redirects |
+| Forms | Netlify Forms (contact + lead capture) |
+
+---
+
+## Route Map
+
+```
+/
+├── wiki/
+│   ├── wiki_100_websites
+│   ├── wiki_ai_powerhouse_setup
+│   ├── wiki_conversion_copy
+│   ├── wiki_launch_sprint
+│   ├── wiki_netlify_partner
+│   ├── wiki_one_page_rapid_offer
+│   ├── wiki_vb_booking_stack
+│   └── wiki_vb_local_seo
+├── blog/
+│   ├── post_004
+│   ├── post_005
+│   ├── post_006
+│   ├── post_007
+│   ├── post_008
+│   ├── post_009
+│   ├── post_010
+│   ├── post_011
+│   └── post_012
+├── offerings/          Services & pricing
+└── contact/            Contact form with validation
+```
+
+**22 total prerendered routes.** Each with unique `title`, `meta description`, `canonical`, `og:title`, `og:description`, `og:url`, `og:image`, `twitter:card`, `twitter:title`, `twitter:description`, and `twitter:image`.
+
+---
 
 ## Local Development
 
-Prerequisites:
-
-- Node.js 20+
-- npm 10+
-
-Install and run:
-
 ```bash
+# Install
 npm install
+
+# Dev server (http://localhost:3000)
 npm run dev
-```
 
-Default dev server: `http://localhost:3000`
+# Type check
+npm run lint
 
-## Build and Preview
-
-```bash
+# Production build + prerender
 npm run build
+
+# Preview production build
 npm run preview
+
+# Clean build artifacts
+npm run clean
 ```
 
-## Useful Scripts
+---
 
-- `npm run lint` TypeScript type-check (`tsc --noEmit`)
-- `npm run clean` Remove `dist/`
-- `npm run prerender:manifest` Generate route metadata manifest
-- `npm run images:generate` Generate placeholder textures (Python)
-- `npm run images:optimize` Optimize images with ffmpeg
+## SEO & Performance
+
+- **Prerendered HTML** — Every route has its own `index.html` with complete metadata
+- **Heading hierarchy** — One `h1` per page, logical `h2`/`h3` structure, no skipped levels
+- **Sitemap** — `sitemap.xml` with 22 URLs, priorities, and changefreq
+- **Robots** — `robots.txt` allowing all, sitemap referenced
+- **Open Graph** — 1200x630 branded PNG with pixel art avatar + Three.js geometric flare
+- **Canonical discipline** — Every page has canonical URL matching production domain
+- **Netlify Forms** — Two forms (contact + lead capture) with honeypot spam protection
+- **Pretty URLs** — Netlify `pretty_urls` enabled, no `.html` extensions
+- **SPA Fallback** — `/* → /index.html 200` for client-side routing
+- **Image optimization** — Netlify automatic image compression on deploy
+
+---
 
 ## Deployment
 
-Netlify config is in `netlify.toml`.
+**Target:** Netlify
 
-- Build command: `npm run build`
-- Publish directory: `dist`
-- SPA redirect configured: `/* -> /index.html`
-- Canonical domain redirect configured to `100websitesin30days.nealfrazier.tech`
+| Setting | Value |
+|---------|-------|
+| Build command | `npm run build` |
+| Publish directory | `dist` |
+| Prerender | Enabled |
+| Pretty URLs | Enabled |
+| SPA Redirect | `/* → /index.html` |
+| Canonical Redirect | `www.nealfrazier.tech → 100websitesin30days.nealfrazier.tech` |
+
+See [`netlify.toml`](netlify.toml) for full configuration.
+
+---
+
+## License
+
+Copyright 2026 Neal Frazier. All rights reserved.
