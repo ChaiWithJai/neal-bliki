@@ -61,7 +61,7 @@ export default function Netlify() {
         {/* Hero */}
         <header className="mx-auto mb-12 max-w-2xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#4285F4]/10 px-4 py-1.5 text-sm font-bold text-[#4285F4]">
-            <Shield className="h-4 w-4" /> Netlify Certified Partner
+            <Shield className="h-4 w-4" /> Netlify Partner
           </div>
           <TextAnimate
             as="h1"

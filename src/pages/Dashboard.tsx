@@ -82,7 +82,7 @@ export default function Dashboard() {
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#4285F4]/20 bg-[#4285F4]/5 px-4 py-2 text-xs font-medium text-[#4285F4] transition-colors hover:bg-[#4285F4]/10"
             >
-              <Shield className="h-3.5 w-3.5" /> Netlify Certified Partner — deploy your next site free
+              <Shield className="h-3.5 w-3.5" /> Netlify Partner — deploy your next site free
               <Rocket className="h-3.5 w-3.5" />
             </a>
           </BlurFade>
@@ -190,84 +190,91 @@ export default function Dashboard() {
             </div>
           </BlurFade>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                tier: "Starter",
-                price: "$20",
-                hook: "Get online TODAY",
-                deliverable: "1-page site, deployed",
-                color: "#4285f4",
-              },
-              {
-                tier: "Launch",
-                price: "$50",
-                hook: "Look legit instantly",
-                deliverable: "Multi-section landing page + branding",
-                color: "#34a853",
-              },
-              {
-                tier: "Growth",
-                price: "$100",
-                hook: "Start getting found",
-                deliverable: "SEO setup + analytics + optimization",
-                color: "#fbbc05",
-              },
-              {
-                tier: "Authority",
-                price: "$250",
-                hook: "Automate & scale",
-                deliverable: "AI integrations + advanced UX + automation",
-                color: "#ea4335",
-              },
-            ].map((item, i) => (
-              <div key={item.tier}>
-                <BlurFade inView delay={i * 0.06}>
-                  <MagicCard className="h-full p-6">
-                    <div className="mb-4 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="h-2 w-2 rounded-full"
-                          style={{ backgroundColor: item.color }}
-                        />
-                        <span className="text-sm font-semibold tracking-wide text-[#6b7280] uppercase">
-                          {item.tier}
-                        </span>
+          <div className="relative">
+            <div className="grid gap-6 blur-sm md:grid-cols-2">
+              {[
+                {
+                  tier: "Starter",
+                  price: "$20",
+                  hook: "Get online TODAY",
+                  deliverable: "1-page site, deployed",
+                  color: "#4285f4",
+                },
+                {
+                  tier: "Launch",
+                  price: "$50",
+                  hook: "Look legit instantly",
+                  deliverable: "Multi-section landing page + branding",
+                  color: "#34a853",
+                },
+                {
+                  tier: "Growth",
+                  price: "$100",
+                  hook: "Start getting found",
+                  deliverable: "SEO setup + analytics + optimization",
+                  color: "#fbbc05",
+                },
+                {
+                  tier: "Authority",
+                  price: "$250",
+                  hook: "Automate & scale",
+                  deliverable: "AI integrations + advanced UX + automation",
+                  color: "#ea4335",
+                },
+              ].map((item, i) => (
+                <div key={item.tier}>
+                  <BlurFade inView delay={i * 0.06}>
+                    <MagicCard className="h-full p-6">
+                      <div className="mb-4 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className="h-2 w-2 rounded-full"
+                            style={{ backgroundColor: item.color }}
+                          />
+                          <span className="text-sm font-semibold tracking-wide text-[#6b7280] uppercase">
+                            {item.tier}
+                          </span>
+                        </div>
+                        <span className="text-2xl font-bold text-[#111111]">{item.price}</span>
                       </div>
-                      <span className="text-2xl font-bold text-[#111111]">{item.price}</span>
-                    </div>
-                    <h3 className="mb-2 text-xl font-bold text-[#111111]">{item.hook}</h3>
-                    <p className="mb-4 text-[#4b5563]">{item.deliverable}</p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2 text-sm text-[#374151]">
-                        <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
-                        <span>Fast turnaround</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-[#374151]">
-                        <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
-                        <span>Netlify-native deploy</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-[#374151]">
-                        <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
-                        <span>Real working product, not a mockup</span>
-                      </li>
-                    </ul>
-                  </MagicCard>
-                </BlurFade>
-              </div>
-            ))}
-          </div>
+                      <h3 className="mb-2 text-xl font-bold text-[#111111]">{item.hook}</h3>
+                      <p className="mb-4 text-[#4b5563]">{item.deliverable}</p>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-sm text-[#374151]">
+                          <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                          <span>Fast turnaround</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-[#374151]">
+                          <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                          <span>Netlify-native deploy</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-[#374151]">
+                          <Zap className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                          <span>Real working product, not a mockup</span>
+                        </li>
+                      </ul>
+                    </MagicCard>
+                  </BlurFade>
+                </div>
+              ))}
+            </div>
 
-          <BlurFade inView delay={0.1}>
-            <div className="mt-12 text-center">
-              <Link to="/contact?context=Interested%20in%20limited%20time%20offer">
-                <ShimmerButton className="font-medium" shimmerColor="#ea4335">
-                  Claim Your Spot
+            <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-white/70 backdrop-blur-sm">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#111111]/15 bg-[#111111] px-4 py-2 text-sm font-semibold text-white">
+                <Calendar className="h-4 w-4" />
+                All spots are filled for this special
+              </div>
+              <p className="mb-6 max-w-md text-center text-[#4b5563]">
+                These intro tiers sold out. See current service packages with realistic pricing and real deliverables.
+              </p>
+              <Link to="/offerings">
+                <ShimmerButton className="font-medium" shimmerColor="#4285f4">
+                  View Services & Pricing
                   <ArrowRight className="h-4 w-4" />
                 </ShimmerButton>
               </Link>
             </div>
-          </BlurFade>
+          </div>
         </div>
       </section>
 

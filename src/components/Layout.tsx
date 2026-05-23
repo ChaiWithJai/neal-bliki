@@ -11,6 +11,7 @@ const navItems = [
   { name: "Stories", path: "/blog" },
   { name: "Work With Me", path: "/offerings" },
   { name: "Contact", path: "/contact" },
+  { name: "Jamstack", path: "/jamstack" },
   { name: "Netlify", path: "/netlify" },
 ];
 
@@ -183,7 +184,7 @@ export default function Layout() {
               className="flex items-center gap-2 text-xs font-medium text-[#4285F4] transition-colors hover:text-[#1d4ed8]"
             >
               <Shield className="h-3.5 w-3.5" />
-              Netlify Certified Partner — deploy free
+              Netlify Partner — deploy free
               <Rocket className="h-3.5 w-3.5" />
             </a>
           </div>

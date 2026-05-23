@@ -15,6 +15,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Offerings = lazy(() => import("./pages/Offerings"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NetlifyPage = lazy(() => import("./pages/Netlify"));
+const Jamstack = lazy(() => import("./pages/Jamstack"));
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="offerings" element={<Offerings />} />
             <Route path="contact" element={<Contact />} />
             <Route path="netlify" element={<NetlifyPage />} />
+            <Route path="jamstack" element={<Jamstack />} />
           </Route>
         </Routes>
       </Suspense>

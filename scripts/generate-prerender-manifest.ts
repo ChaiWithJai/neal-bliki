@@ -183,6 +183,17 @@ async function main() {
       });
       continue;
     }
+
+    if (pattern === "/jamstack") {
+      routes.push({
+        route: "/jamstack",
+        title: `Jamstack Guide | ${data.bliki_metadata.title}`,
+        description: "Honest guide to Jamstack architecture: pros, cons, pain points, and how to decide if it fits your business, client, or developer workflow.",
+        canonical: buildCanonical(baseUrl, "/jamstack"),
+        ogImage: defaultOgImage,
+      });
+      continue;
+    }
     routes.push({
       route: pattern,
       title: `${data.bliki_metadata.title}`,
