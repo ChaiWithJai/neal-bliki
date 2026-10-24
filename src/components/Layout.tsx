@@ -1,19 +1,33 @@
 import { useEffect, useState } from "react";
-import LeadCapturePopup from "@/components/LeadCapturePopup";
+import Season2Popup from "@/components/Season2Popup";
+import { ReadingProgress } from "@/components/ReadingProgress";
+import { SearchModal } from "@/components/SearchModal";
+import { BlikiAssistantModal } from "@/components/BlikiAssistantModal";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Cloud, Globe, Instagram, Linkedin, Menu, Twitter, X, Shield, Rocket } from "lucide-react";
+import { Cloud, Globe, Instagram, Linkedin, Menu, Twitter, X, Shield, Rocket, Bot, Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", path: "/" },
-  { name: "Knowledge", path: "/wiki" },
+  { name: "Overview", path: "/" },
+  { name: "757 Cities", path: "/locations" },
+  { name: "Portfolio", path: "/portfolio" },
+  { name: "Pixel Pets", path: "/pets" },
+  { name: "AI Stack", path: "/ai-tech-stack" },
+  { name: "Estimator", path: "/calculator" },
+  { name: "Services", path: "/offerings" },
+  { name: "Process", path: "/process" },
+  { name: "Builds", path: "/builds" },
+  { name: "Wiki", path: "/wiki" },
   { name: "Stories", path: "/blog" },
-  { name: "Work With Me", path: "/offerings" },
+  { name: "Feed", path: "/social" },
   { name: "Contact", path: "/contact" },
-  { name: "Jamstack", path: "/jamstack" },
-  { name: "Netlify", path: "/netlify" },
 ];
+
+// Core pages shown in the desktop pill to keep it uncluttered.
+const desktopNavItems = navItems.filter((i) =>
+  ["/", "/locations", "/portfolio", "/pets", "/ai-tech-stack", "/calculator", "/contact"].includes(i.path)
+);
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/in/nealfrazier", icon: Linkedin },
@@ -30,11 +44,11 @@ export default function Layout() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -43,8 +57,40 @@ export default function Layout() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Keyboard shortcut: Ctrl/Cmd+K to open search
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((s) => !s);
+      }
+      if (e.key === "Escape") {
+        setSearchOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-x-clip bg-transparent font-sans text-[#111111]">
+      {/* Skip to content link for keyboard/screen reader users */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-[#111111] focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+      >
+        Skip to content
+      </a>
+
+      {/* Reading progress bar */}
+      <ReadingProgress />
+
+      {/* Floating AI Assistant Modal */}
+      <BlikiAssistantModal />
+
+      {/* Search modal */}
+      {searchOpen && <SearchModal onClose={() => setSearchOpen(false)} />}
+
       <div
         className="pointer-events-none fixed inset-0 -z-10 opacity-50"
         style={{
@@ -60,6 +106,7 @@ export default function Layout() {
           "fixed left-1/2 z-50 -translate-x-1/2 transition-all duration-300",
           scrolled ? "top-3" : "top-4"
         )}
+        aria-label="Main navigation"
       >
         <div
           className={cn(
@@ -69,7 +116,7 @@ export default function Layout() {
               : "bg-white/80 backdrop-blur-md"
           )}
         >
-          <Link to="/" className="flex items-center gap-2 px-3 py-1.5 text-sm font-bold tracking-tight">
+          <Link to="/" className="flex items-center gap-2 px-3 py-1.5 text-sm font-bold tracking-tight" aria-label="Home">
             <img
               src="/logo-neal-avatar-transparent-bg.webp"
               alt="Neal Frazier avatar logo"
@@ -78,7 +125,7 @@ export default function Layout() {
             />
           </Link>
           <div className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => {
+            {desktopNavItems.map((item) => {
               const isActive =
                 location.pathname === item.path ||
                 (item.path !== "/" && location.pathname.startsWith(item.path));
@@ -88,11 +135,12 @@ export default function Layout() {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    "rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200",
+                    "whitespace-nowrap rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200",
                     isActive
                       ? "bg-[#111111] text-white"
                       : "text-[#111111] hover:bg-black/7"
                   )}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {item.name}
                 </Link>
@@ -100,10 +148,20 @@ export default function Layout() {
             })}
           </div>
 
+          {/* Search button */}
+          <button
+            onClick={() => setSearchOpen(true)}
+            aria-label="Search (Ctrl+K)"
+            className="rounded-full p-2 text-[#111111] transition-colors hover:bg-black/7"
+          >
+            <Search className="h-4 w-4" />
+          </button>
+
           <button
             className="p-2 text-[#111111] md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -124,20 +182,27 @@ export default function Layout() {
                     "block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors",
                     isActive ? "bg-[#111111] text-white" : "text-[#111111] hover:bg-black/6"
                   )}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {item.name}
                 </Link>
               );
             })}
+            <Link
+              to="/ai"
+              className="mt-1 block rounded-xl px-4 py-2.5 text-sm font-medium text-[#1f4db3] hover:bg-black/6"
+            >
+              AI Agent Index
+            </Link>
           </div>
         )}
       </nav>
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
 
-      <footer className="border-t border-black/10 bg-white/80">
+      <footer className="border-t border-black/10 bg-white/80" role="contentinfo">
         <div className="mx-auto max-w-6xl px-6 py-12">
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
             <div>
@@ -160,6 +225,10 @@ export default function Layout() {
                   {item.name}
                 </Link>
               ))}
+              <Link to="/ai" className="inline-flex items-center gap-1 text-sm font-medium text-[#1f4db3] transition-colors hover:text-[#4285f4]">
+                <Bot className="h-3.5 w-3.5" />
+                AI Agent Index
+              </Link>
             </div>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
@@ -191,14 +260,22 @@ export default function Layout() {
 
           <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-black/10 pt-8 md:flex-row">
             <p className="text-xs text-[#6b7280]">© 2026 {SITE_AUTHOR}. All rights reserved.</p>
-            <a
-              href={SITE_BASE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-[#6b7280] transition-colors hover:text-[#34a853]"
-            >
-              {SITE_BASE_URL.replace("https://", "")}
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href={`${SITE_BASE_URL}/feed.xml`}
+                className="text-xs text-[#6b7280] transition-colors hover:text-[#4285f4]"
+              >
+                RSS Feed
+              </a>
+              <a
+                href={SITE_BASE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-[#6b7280] transition-colors hover:text-[#34a853]"
+              >
+                {SITE_BASE_URL.replace("https://", "")}
+              </a>
+            </div>
           </div>
         </div>
       </footer>
@@ -209,7 +286,7 @@ export default function Layout() {
         aria-label="Easter egg link"
         className="absolute right-3 bottom-3 h-2 w-2 rounded-full opacity-0"
       />
-      <LeadCapturePopup />
+      <Season2Popup />
     </div>
   );
 }

@@ -34,14 +34,14 @@ export default function Offerings() {
               <div className="flex-1">
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#EA4335]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#EA4335]">
                   <Megaphone className="h-3.5 w-3.5" />
-                  New
+                  Local Leads
                 </div>
                 <h2 className="text-uplift mb-3 text-2xl font-bold tracking-tight text-[#111111] md:text-3xl">
-                  I can get you business leads with advertising
+                  I get you business leads in the 757 with targeted advertising
                 </h2>
                 <p className="max-w-lg text-[#4b5563]">
                   Paid ads that actually convert. I set up, manage, and optimize campaigns
-                  so you stop burning budget and start booking real customers.
+                  so local Hampton Roads businesses stop burning budget and start booking real clients.
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3">
@@ -62,7 +62,7 @@ export default function Offerings() {
         </BlurFade>
 
 
-        {data.business_context.offerings.map((offering, i) => (
+        {data.business_context.offerings.map((offering: any, i: number) => (
           <div key={offering.id}>
             <BlurFade inView delay={i * 0.06}>
               <MagicCard className="relative mb-12 overflow-hidden p-8 md:p-12">
@@ -71,15 +71,40 @@ export default function Offerings() {
                     <h2 className="text-uplift mb-3 text-3xl font-bold tracking-tight text-[#111111]">
                       {offering.name}
                     </h2>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-[#FBBC05]/20 px-4 py-1.5 text-sm font-semibold text-[#FBBC05]">
-                      {offering.price_usd}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <div className="inline-flex items-center gap-2 rounded-full bg-[#FBBC05]/20 px-4 py-1.5 text-sm font-semibold text-[#b45309]">
+                        {offering.price_usd}
+                      </div>
+                      <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-700">
+                        Promo Code FOUNDER25 saves 25%
+                      </span>
                     </div>
                   </div>
-                  <Link to={`/contact?context=${encodeURIComponent(`Interested in ${offering.name}`)}`}>
-                    <ShimmerButton className="font-medium" shimmerColor="#34a853">
-                      Get Started <ArrowRight className="h-4 w-4" />
-                    </ShimmerButton>
-                  </Link>
+                  <div className="flex flex-wrap items-center gap-3">
+                    {offering.stripe_url && (
+                      <a href={offering.stripe_url} target="_blank" rel="noopener noreferrer">
+                        <ShimmerButton className="font-medium" shimmerColor="#34a853">
+                          Instant Checkout <ArrowRight className="h-4 w-4" />
+                        </ShimmerButton>
+                      </a>
+                    )}
+                    {offering.specs_url && (
+                      <a
+                        href={offering.specs_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-white px-4 py-2.5 text-xs font-semibold text-[#111111] transition-colors hover:bg-black/5"
+                      >
+                        Live Specs / Preview <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                    <Link
+                      to={`/contact?context=${encodeURIComponent(`Interested in ${offering.name}`)}`}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-4 py-2.5 text-xs font-medium text-[#4b5563] hover:text-[#111111]"
+                    >
+                      Ask a Question
+                    </Link>
+                  </div>
                 </div>
 
                 <div className="grid gap-10 md:grid-cols-2">
